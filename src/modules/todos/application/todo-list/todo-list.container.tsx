@@ -4,6 +4,7 @@ import { TodoListView } from "@/modules/todos/application/todo-list/todo-list.vi
 import { getTodos } from "@/modules/todos/domain/todos.actions"
 import { outputs } from "@/config/outputs"
 import { Todo } from "@/modules/todos/application/todo"
+import { mapToApplicationModel } from "@/modules/todos/application/todos.mapper"
 
 export const TodoListContainer = () => {
 	const [todos, setTodos] = useState<Todo[]>([])
@@ -28,12 +29,11 @@ export const TodoListContainer = () => {
 		}
 	}
 
-	const mapToApplicationModel = (todosDomain: TodoDomain[]): Todo[] => {
-		return todosDomain.map((todoDomain: TodoDomain) => ({
-			...todoDomain,
-			isCompleted: todoDomain.isDone,
-		}))
-	}
-
-	return <TodoListView todos={todos} isErrorToGetTodos={isErrorToGetTodos} />
+	return (
+		<TodoListView
+			todos={todos}
+			isErrorToGetTodos={isErrorToGetTodos}
+			setTodos={setTodos}
+		/>
+	)
 }

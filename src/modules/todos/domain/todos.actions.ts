@@ -12,3 +12,31 @@ export const getTodos = async ({
 		throw new Error(error)
 	}
 }
+
+export const addTodo = async ({
+	todosOutput,
+	todoTitle,
+}: {
+	todosOutput: TodosOutput
+	todoTitle: string
+}): Promise<Todo[]> => {
+	try {
+		return await todosOutput.addTodo({ todoTitle })
+	} catch (error: any) {
+		throw new Error(error)
+	}
+}
+
+export const toggleCompleteTodo = async ({
+	todosOutput,
+	todoTitle,
+}: {
+	todosOutput: TodosOutput
+	todoTitle: string
+}): Promise<Todo[]> => {
+	try {
+		return await todosOutput.toggleCompleteTodo({ todoTitle })
+	} catch (error: any) {
+		throw new Error(error)
+	}
+}

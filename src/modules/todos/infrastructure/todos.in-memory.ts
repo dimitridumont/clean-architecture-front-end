@@ -1,12 +1,19 @@
 import { TodosOutput } from "@/modules/todos/domain/todos.output"
 import { Todo } from "@/modules/todos/domain/todo"
-import { Todo as TodoModel } from "@/modules/todos/infrastructure/todo"
+import { Todo as TodoInfra } from "@/modules/todos/infrastructure/todo"
 
 export class TodosInMemory implements TodosOutput {
-	private todos: TodoModel[] | undefined = []
+	private todos: TodoInfra[] | undefined = []
 
-	setTodos(todos: TodoModel[] | undefined): void {
-		this.todos = todos
+	setTodos(todos: TodoInfra[] | undefined): void {
+		this.todos = todos ? [...todos] : undefined
+	}
+
+	mapToDomainModel(infraModel: TodoInfra[]): Todo[] {
+		return infraModel.map((infraModel: TodoInfra) => ({
+			title: infraModel.title,
+			isDone: infraModel.isOk,
+		}))
 	}
 
 	getTodos(): Promise<Todo[]> {
@@ -19,10 +26,43 @@ export class TodosInMemory implements TodosOutput {
 		return Promise.resolve(todos)
 	}
 
-	mapToDomainModel(infraModel: TodoModel[]): Todo[] {
-		return infraModel.map((infraModel: TodoModel) => ({
-			...infraModel,
-			isDone: infraModel.isOk,
-		}))
+	addTodo({ todoTitle }: { todoTitle: string }): Promise<Todo[]> {
+		if (!this.todos)
+			throw new Error(
+				"Une erreur est survenue lors de l'ajout de la tâche"
+			)
+
+		const todo: TodoInfra = {
+			title: todoTitle,
+			isOk: false,
+		}
+
+		this.todos.push(todo)
+
+		const todos: Todo[] = this.mapToDomainModel(this.todos)
+
+		return Promise.resolve(todos)
+	}
+
+	toggleCompleteTodo({ todoTitle }: { todoTitle: string }): Promise<Todo[]> {
+		if (!this.todos)
+			throw new Error(
+				"Une erreur est survenue lors de l'ajout de la tâche"
+			)
+
+		this.todos = [
+			...this.todos.map((todo: TodoInfra) => {
+				return todo.title === todoTitle
+					? {
+							...todo,
+							isOk: !todo.isOk,
+					  }
+					: todo
+			}),
+		]
+
+		const todos: Todo[] = this.mapToDomainModel(this.todos)
+
+		return Promise.resolve(todos)
 	}
 }
