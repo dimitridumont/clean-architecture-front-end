@@ -7,9 +7,15 @@ const Home: NextPage = () => {
 		<>
 			<Head>
 				<title>Clean architecture in front-end</title>
+				<meta charSet="UTF-8" />
 				<meta
 					name="description"
 					content="Clean architecture in front-end example"
+				/>
+				<meta name="author" content="Dimitri Dumont" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
