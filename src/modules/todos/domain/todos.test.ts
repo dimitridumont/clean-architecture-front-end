@@ -1,4 +1,5 @@
 import { Todo } from "@/modules/todos/domain/todo"
+import { Todo as TodoInfraModel } from "@/modules/todos/infrastructure/todo"
 import {
 	addTodo,
 	getTodos,
@@ -6,10 +7,7 @@ import {
 	toggleCompleteTodo,
 } from "@/modules/todos/domain/todos.actions"
 import { TodosInMemory } from "@/modules/todos/infrastructure/todos.in-memory"
-import {
-	todosDomainFakes,
-	todosInfrastructureFakes,
-} from "@/modules/todos/domain/todos.fakes"
+import { todosInfrastructureFakes } from "@/modules/todos/infrastructure/todos.fakes"
 
 describe("[todos] unit tests", () => {
 	const todosOutput = new TodosInMemory()
@@ -26,7 +24,14 @@ describe("[todos] unit tests", () => {
 				todosOutput,
 			})
 
-			expect(todos).toEqual(todosDomainFakes)
+			const expectedTodos: Todo[] = todosInfrastructureFakes.map(
+				(infraModel: TodoInfraModel) => ({
+					title: infraModel.title,
+					isDone: infraModel.isOk,
+				})
+			)
+
+			expect(todos).toEqual(expectedTodos)
 		})
 
 		it("shouldn't get them and should throw error", async () => {
