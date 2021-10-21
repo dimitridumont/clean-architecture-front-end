@@ -7,4 +7,10 @@
 - [x] implement the action to remove a todo
 
 ## Ideas
-- [ ] implement the action to change the order of todos
+- [ ] implement the action to change the order of todos (drag and drop)
+
+## Other versions
+- [ ] use Redux
+- [ ] use LocalStorage
+- [ ] create an API with NestJS
+
