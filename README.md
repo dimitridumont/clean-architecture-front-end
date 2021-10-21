@@ -10,14 +10,15 @@ If you have any questions, suggestions or anything else, don't hesitate to conta
 And if this repository has helped you, consider sharing it with your acquaintances.
 
 ## Summary
-1) [Getting started](#Getting started)
-2) [Clean architecture](#Clean architecture)
-   1) [Use case](#Use case)
-   2) [Primary port](#Primary port)
-   3) [Primary adapter](#Primary adapter)
-   4) [Secondary port](#Secondary port)
-   5) [Secondary adapter](#Secondary adapter)
-3) [Resources](#Resources)
+
+1. [Getting started](#Getting started)
+2. [Clean architecture](#Clean architecture)
+    1. [Use case](#Use case)
+    2. [Primary port](#Primary port)
+    3. [Primary adapter](#Primary adapter)
+    4. [Secondary port](#Secondary port)
+    5. [Secondary adapter](#Secondary adapter)
+3. [Resources](#Resources)
 
 ## Getting started
 
