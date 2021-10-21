@@ -8,7 +8,7 @@ import { mapToApplicationModel } from "@/modules/todos/application/todos.mapper"
 
 export const TodoListContainer = () => {
 	const [todos, setTodos] = useState<Todo[]>([])
-	const [isErrorToGetTodos, setIsErrorToGetTodos] = useState<boolean>(false)
+	const [errorToGetTodos, setErrorToGetTodos] = useState<string>("")
 
 	useEffect(() => {
 		_getTodos()
@@ -23,16 +23,16 @@ export const TodoListContainer = () => {
 			const todos: Todo[] = mapToApplicationModel(todosDomain)
 
 			setTodos(todos)
-			setIsErrorToGetTodos(false)
-		} catch (error) {
-			setIsErrorToGetTodos(true)
+			setErrorToGetTodos("")
+		} catch (error: any) {
+			setErrorToGetTodos(error.message)
 		}
 	}
 
 	return (
 		<TodoListView
 			todos={todos}
-			isErrorToGetTodos={isErrorToGetTodos}
+			errorToGetTodos={errorToGetTodos}
 			setTodos={setTodos}
 		/>
 	)

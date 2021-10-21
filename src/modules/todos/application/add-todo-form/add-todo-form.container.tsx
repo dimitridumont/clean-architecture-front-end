@@ -12,7 +12,7 @@ interface Props {
 
 export const AddTodoFormContainer = ({ setTodos }: Props) => {
 	const [todoTitle, setTodoTitle] = useState<string>("")
-	const [isErrorToAddTodo, setIsErrorToAddTodo] = useState<boolean>(false)
+	const [errorToAddTodo, setErrorToAddTodo] = useState<string>("")
 
 	const onChangeTodoTitle = (event: any) => {
 		const title: string = event.target.value
@@ -32,9 +32,9 @@ export const AddTodoFormContainer = ({ setTodos }: Props) => {
 			setTodos(mapToApplicationModel(todos))
 
 			setTodoTitle("")
-			setIsErrorToAddTodo(false)
-		} catch (error) {
-			setIsErrorToAddTodo(true)
+			setErrorToAddTodo("")
+		} catch (error: any) {
+			setErrorToAddTodo(error.message)
 		}
 	}
 
@@ -43,7 +43,7 @@ export const AddTodoFormContainer = ({ setTodos }: Props) => {
 			onSubmit={onSubmit}
 			todoTitle={todoTitle}
 			onChangeTodoTitle={onChangeTodoTitle}
-			isErrorToAddTodo={isErrorToAddTodo}
+			errorToAddTodo={errorToAddTodo}
 		/>
 	)
 }
