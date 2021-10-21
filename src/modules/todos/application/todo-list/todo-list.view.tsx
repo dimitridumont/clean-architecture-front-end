@@ -33,7 +33,7 @@ export const TodoListView = ({ todos, errorToGetTodos, setTodos }: Props) => {
 			<div className={styles.information}>
 				Left click to complete todo
 				<br />
-				Right click to remove todo
+				Right click or long touch on mobile to remove todo
 			</div>
 		</>
 	)
