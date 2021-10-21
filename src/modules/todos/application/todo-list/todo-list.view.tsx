@@ -18,10 +18,7 @@ export const TodoListView = ({ todos, isErrorToGetTodos, setTodos }: Props) => {
 			<AddTodoFormContainer setTodos={setTodos} />
 
 			{isErrorToGetTodos && (
-				<div>
-					Une erreur est survenue lors de la récupération des tâches à
-					effectuer
-				</div>
+				<div>An error occurred while retrieving todos</div>
 			)}
 
 			<ul className={styles.container}>
@@ -33,6 +30,12 @@ export const TodoListView = ({ todos, isErrorToGetTodos, setTodos }: Props) => {
 					/>
 				))}
 			</ul>
+
+			<div className={styles.information}>
+				Left click to complete todo
+				<br />
+				Right click to remove todo
+			</div>
 		</>
 	)
 }

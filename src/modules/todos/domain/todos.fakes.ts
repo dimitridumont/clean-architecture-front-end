@@ -2,15 +2,15 @@ import { Todo as TodoModel, Todo } from "@/modules/todos/infrastructure/todo"
 
 export const todosInfrastructureFakes: Todo[] = [
 	{
-		title: "Préparer la réunion",
+		title: "Prepare for the meeting",
 		isOk: false,
 	},
 	{
-		title: "Promener le chien",
+		title: "Walk the dog",
 		isOk: true,
 	},
 	{
-		title: "Commencer le MVP",
+		title: "Start the project",
 		isOk: false,
 	},
 ]

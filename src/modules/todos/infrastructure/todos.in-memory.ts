@@ -18,7 +18,7 @@ export class TodosInMemory implements TodosOutput {
 
 	getTodos(): Promise<Todo[]> {
 		if (!this.todos) {
-			throw new Error("Veuillez créer une tâche")
+			throw new Error("Please create a todo")
 		}
 
 		const todos: Todo[] = this.mapToDomainModel(this.todos)
@@ -28,9 +28,7 @@ export class TodosInMemory implements TodosOutput {
 
 	addTodo({ todoTitle }: { todoTitle: string }): Promise<Todo[]> {
 		if (!this.todos)
-			throw new Error(
-				"Une erreur est survenue lors de l'ajout de la tâche"
-			)
+			throw new Error("An error occurred while adding the todo")
 
 		const isTodoExists: boolean =
 			this.todos.find((todo: TodoInfra) => todo.title === todoTitle) !==
@@ -52,9 +50,7 @@ export class TodosInMemory implements TodosOutput {
 
 	toggleCompleteTodo({ todoTitle }: { todoTitle: string }): Promise<Todo[]> {
 		if (!this.todos)
-			throw new Error(
-				"Une erreur est survenue lors de l'ajout de la tâche"
-			)
+			throw new Error("An error occurred while modifying the todo")
 
 		this.todos = [
 			...this.todos.map((todo: TodoInfra) => {
@@ -74,9 +70,7 @@ export class TodosInMemory implements TodosOutput {
 
 	removeTodo({ todoTitle }: { todoTitle: string }): Promise<Todo[]> {
 		if (!this.todos)
-			throw new Error(
-				"Une erreur est survenue lors de l'ajout de la tâche"
-			)
+			throw new Error("n error occurred while deleting the task")
 
 		this.todos = [
 			...this.todos.filter((todo: TodoInfra) => todo.title !== todoTitle),

@@ -44,12 +44,12 @@ describe("[todos] unit tests", () => {
 		it("should add it to his empty todos", async () => {
 			const todos: Todo[] = await addTodo({
 				todosOutput,
-				todoTitle: "Préparer la réunion",
+				todoTitle: "Prepare for the meeting",
 			})
 
 			const expectedTodos: Todo[] = [
 				{
-					title: "Préparer la réunion",
+					title: "Prepare for the meeting",
 					isDone: false,
 				},
 			]
@@ -62,13 +62,13 @@ describe("[todos] unit tests", () => {
 
 			const todos: Todo[] = await addTodo({
 				todosOutput,
-				todoTitle: "Préparer le cours",
+				todoTitle: "Prepare the course",
 			})
 
 			const expectedTodos: Todo[] = [
 				...todosOutput.mapToDomainModel(todosInfrastructureFakes),
 				{
-					title: "Préparer le cours",
+					title: "Prepare the course",
 					isDone: false,
 				},
 			]
@@ -81,7 +81,7 @@ describe("[todos] unit tests", () => {
 
 			const todos: Todo[] = await addTodo({
 				todosOutput,
-				todoTitle: "Préparer la réunion",
+				todoTitle: "Prepare for the meeting",
 			})
 
 			const expectedTodos: Todo[] = [
@@ -97,7 +97,7 @@ describe("[todos] unit tests", () => {
 			await expect(
 				addTodo({
 					todosOutput,
-					todoTitle: "Préparer le cours",
+					todoTitle: "Prepare the course",
 				})
 			).rejects.toThrowError()
 		})
@@ -109,20 +109,20 @@ describe("[todos] unit tests", () => {
 
 			const todos: Todo[] = await toggleCompleteTodo({
 				todosOutput,
-				todoTitle: "Préparer la réunion",
+				todoTitle: "Prepare for the meeting",
 			})
 
 			const expectedTodos: Todo[] = [
 				{
-					title: "Préparer la réunion",
+					title: "Prepare for the meeting",
 					isDone: true,
 				},
 				{
-					title: "Promener le chien",
+					title: "Walk the dog",
 					isDone: true,
 				},
 				{
-					title: "Commencer le MVP",
+					title: "Start the project",
 					isDone: false,
 				},
 			]
@@ -135,20 +135,20 @@ describe("[todos] unit tests", () => {
 
 			const todos: Todo[] = await toggleCompleteTodo({
 				todosOutput,
-				todoTitle: "Promener le chien",
+				todoTitle: "Walk the dog",
 			})
 
 			const expectedTodos: Todo[] = [
 				{
-					title: "Préparer la réunion",
+					title: "Prepare for the meeting",
 					isDone: false,
 				},
 				{
-					title: "Promener le chien",
+					title: "Walk the dog",
 					isDone: false,
 				},
 				{
-					title: "Commencer le MVP",
+					title: "Start the project",
 					isDone: false,
 				},
 			]
@@ -161,20 +161,20 @@ describe("[todos] unit tests", () => {
 
 			const todos: Todo[] = await toggleCompleteTodo({
 				todosOutput,
-				todoTitle: "Une tâche qui n'existe pas",
+				todoTitle: "A todo that does not exist",
 			})
 
 			const expectedTodos: Todo[] = [
 				{
-					title: "Préparer la réunion",
+					title: "Prepare for the meeting",
 					isDone: false,
 				},
 				{
-					title: "Promener le chien",
+					title: "Walk the dog",
 					isDone: true,
 				},
 				{
-					title: "Commencer le MVP",
+					title: "Start the project",
 					isDone: false,
 				},
 			]
@@ -188,7 +188,7 @@ describe("[todos] unit tests", () => {
 			await expect(
 				toggleCompleteTodo({
 					todosOutput,
-					todoTitle: "Préparer le cours",
+					todoTitle: "Prepare the course",
 				})
 			).rejects.toThrowError()
 		})
@@ -200,16 +200,16 @@ describe("[todos] unit tests", () => {
 
 			const todos: Todo[] = await removeTodo({
 				todosOutput,
-				todoTitle: "Préparer la réunion",
+				todoTitle: "Prepare for the meeting",
 			})
 
 			const expectedTodos: Todo[] = [
 				{
-					title: "Promener le chien",
+					title: "Walk the dog",
 					isDone: true,
 				},
 				{
-					title: "Commencer le MVP",
+					title: "Start the project",
 					isDone: false,
 				},
 			]
@@ -222,20 +222,20 @@ describe("[todos] unit tests", () => {
 
 			const todos: Todo[] = await removeTodo({
 				todosOutput,
-				todoTitle: "Une tâche qui n'existe pas",
+				todoTitle: "A todo that does not exist",
 			})
 
 			const expectedTodos: Todo[] = [
 				{
-					title: "Préparer la réunion",
+					title: "Prepare for the meeting",
 					isDone: false,
 				},
 				{
-					title: "Promener le chien",
+					title: "Walk the dog",
 					isDone: true,
 				},
 				{
-					title: "Commencer le MVP",
+					title: "Start the project",
 					isDone: false,
 				},
 			]
@@ -249,7 +249,7 @@ describe("[todos] unit tests", () => {
 			await expect(
 				removeTodo({
 					todosOutput,
-					todoTitle: "Préparer le cours",
+					todoTitle: "Prepare the course",
 				})
 			).rejects.toThrowError()
 		})

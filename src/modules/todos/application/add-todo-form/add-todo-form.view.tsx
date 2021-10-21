@@ -18,14 +18,14 @@ export const AddTodoFormView = ({
 		<form className={styles.container} onSubmit={onSubmit}>
 			<input
 				name={"title"}
-				placeholder={"Ajouter une tâche"}
+				placeholder={"Add todo"}
 				value={todoTitle}
 				onChange={onChangeTodoTitle}
 				required={true}
 			/>
 
 			{isErrorToAddTodo && (
-				<div>Une erreur est survenu lors de l'ajout de la tâche</div>
+				<div>An error occurred while adding the todo</div>
 			)}
 		</form>
 	)

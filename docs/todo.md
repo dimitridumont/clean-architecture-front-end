@@ -1,11 +1,10 @@
 # Todo
 
 ## Main features
-- [x] implémenter l'action pour lister les tâches
-- [x] implémenter l'action pour ajouter une tâche
-- [x] implémenter l'action pour marquer une tâche comme effectuée
-- [ ] implémenter l'action pour supprimer une tâche
+- [x] implement the action to list todos
+- [x] implement the action to add a todo
+- [x] implement the action to complete a todo
+- [x] implement the action to remove a todo
 
 ## Ideas
-- [ ] implémenter l'action pour changer l'ordre des tâches
-- [ ] améliorer le style de l'application
+- [ ] implement the action to change the order of todos
