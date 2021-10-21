@@ -32,12 +32,18 @@ export class TodosInMemory implements TodosOutput {
 				"Une erreur est survenue lors de l'ajout de la tâche"
 			)
 
-		const todo: TodoInfra = {
-			title: todoTitle,
-			isOk: false,
-		}
+		const isTodoExists: boolean =
+			this.todos.find((todo: TodoInfra) => todo.title === todoTitle) !==
+			undefined
 
-		this.todos.push(todo)
+		if (!isTodoExists) {
+			const todo: TodoInfra = {
+				title: todoTitle,
+				isOk: false,
+			}
+
+			this.todos.push(todo)
+		}
 
 		const todos: Todo[] = this.mapToDomainModel(this.todos)
 

@@ -76,6 +76,21 @@ describe("[todos] unit tests", () => {
 			expect(todos).toEqual(expectedTodos)
 		})
 
+		it("shouldn't add it to his existing todos if the todo is already existed", async () => {
+			todosOutput.setTodos(todosInfrastructureFakes)
+
+			const todos: Todo[] = await addTodo({
+				todosOutput,
+				todoTitle: "Préparer la réunion",
+			})
+
+			const expectedTodos: Todo[] = [
+				...todosOutput.mapToDomainModel(todosInfrastructureFakes),
+			]
+
+			expect(todos).toEqual(expectedTodos)
+		})
+
 		it("shouldn't add it and should throw error", async () => {
 			todosOutput.setTodos(undefined)
 
