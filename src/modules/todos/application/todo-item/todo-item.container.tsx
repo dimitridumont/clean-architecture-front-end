@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Todo } from "@/modules/todos/application/todo"
 import { TodoItemView } from "@/modules/todos/application/todo-item/todo-item.view"
 import {
@@ -15,6 +15,9 @@ interface Props {
 }
 
 export const TodoItemContainer = ({ todo, setTodos }: Props) => {
+	const [errorToCompleteTodo, setErrorToCompleteTodo] = useState<string>("")
+	const [errorToRemoveTodo, setErrorToRemoveTodo] = useState<string>("")
+
 	const _completeTodo = async () => {
 		try {
 			const todos: TodoDomain[] = await toggleCompleteTodo({
@@ -23,8 +26,9 @@ export const TodoItemContainer = ({ todo, setTodos }: Props) => {
 			})
 
 			setTodos(mapToApplicationModel(todos))
-		} catch (error) {
-			console.warn(error)
+			setErrorToCompleteTodo("")
+		} catch (error: any) {
+			setErrorToCompleteTodo(error.message)
 		}
 	}
 
@@ -38,8 +42,9 @@ export const TodoItemContainer = ({ todo, setTodos }: Props) => {
 			})
 
 			setTodos(mapToApplicationModel(todos))
-		} catch (error) {
-			console.warn(error)
+			setErrorToRemoveTodo("")
+		} catch (error: any) {
+			setErrorToRemoveTodo(error.message)
 		}
 	}
 
@@ -48,6 +53,8 @@ export const TodoItemContainer = ({ todo, setTodos }: Props) => {
 			todo={todo}
 			completeTodo={_completeTodo}
 			removeTodo={_removeTodo}
+			errorToCompleteTodo={errorToCompleteTodo}
+			errorToRemoveTodo={errorToRemoveTodo}
 		/>
 	)
 }

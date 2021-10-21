@@ -1,18 +1,19 @@
 import React from "react"
 import styles from "./add-todo-form.module.scss"
+import { Error } from "@/components/error/error"
 
 interface Props {
 	onSubmit: (event: any) => void
 	todoTitle: string
 	onChangeTodoTitle: (event: any) => void
-	isErrorToAddTodo: boolean
+	errorToAddTodo: string
 }
 
 export const AddTodoFormView = ({
 	onSubmit,
 	todoTitle,
 	onChangeTodoTitle,
-	isErrorToAddTodo,
+	errorToAddTodo,
 }: Props) => {
 	return (
 		<form className={styles.container} onSubmit={onSubmit}>
@@ -24,9 +25,7 @@ export const AddTodoFormView = ({
 				required={true}
 			/>
 
-			{isErrorToAddTodo && (
-				<div>An error occurred while adding the todo</div>
-			)}
+			<Error error={errorToAddTodo} />
 		</form>
 	)
 }
