@@ -11,14 +11,14 @@ And if this repository has helped you, consider sharing it with your acquaintanc
 
 ## Summary
 
-1. [Getting started](#Getting started)
-2. [Clean architecture](#Clean architecture)
-    1. [Use case](#Use case)
-    2. [Primary port](#Primary port)
-    3. [Primary adapter](#Primary adapter)
-    4. [Secondary port](#Secondary port)
-    5. [Secondary adapter](#Secondary adapter)
-3. [Resources](#Resources)
+1. [Getting started](#getting-started)
+2. [Clean architecture](#clean-architecture)
+    1. [Use case](#use-case)
+    2. [Primary port](#primary-port)
+    3. [Primary adapter](#primary-adapter)
+    4. [Secondary port](#secondary-port)
+    5. [Secondary adapter](#secondary-adapter)
+3. [Resources](#resources)
 
 ## Getting started
 
