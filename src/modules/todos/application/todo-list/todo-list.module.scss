@@ -9,8 +9,17 @@
   background-color: #fff;
   padding: 0;
   margin: 0 auto;
-  width: 30%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  width: 95%;
+
+  @media screen and (min-width: 768px) {
+    width: 65%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 30%;
+  }
 }
 
 .information {
