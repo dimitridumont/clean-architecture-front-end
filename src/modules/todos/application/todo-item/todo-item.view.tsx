@@ -5,9 +5,10 @@ import styles from "./todo-item.module.scss"
 interface Props {
 	todo: Todo
 	completeTodo: () => void
+	removeTodo: (event: any) => void
 }
 
-export const TodoItemView = ({ todo, completeTodo }: Props) => {
+export const TodoItemView = ({ todo, completeTodo, removeTodo }: Props) => {
 	return (
 		<li
 			key={todo.title}
@@ -16,6 +17,7 @@ export const TodoItemView = ({ todo, completeTodo }: Props) => {
 				(todo.isCompleted ? " " + styles.isCompleted : "")
 			}
 			onClick={completeTodo}
+			onContextMenu={removeTodo}
 		>
 			{todo.title}
 		</li>

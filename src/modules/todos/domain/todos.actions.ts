@@ -40,3 +40,17 @@ export const toggleCompleteTodo = async ({
 		throw new Error(error)
 	}
 }
+
+export const removeTodo = async ({
+	todosOutput,
+	todoTitle,
+}: {
+	todosOutput: TodosOutput
+	todoTitle: string
+}): Promise<Todo[]> => {
+	try {
+		return await todosOutput.removeTodo({ todoTitle })
+	} catch (error: any) {
+		throw new Error(error)
+	}
+}

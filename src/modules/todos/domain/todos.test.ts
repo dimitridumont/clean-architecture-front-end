@@ -2,6 +2,7 @@ import { Todo } from "@/modules/todos/domain/todo"
 import {
 	addTodo,
 	getTodos,
+	removeTodo,
 	toggleCompleteTodo,
 } from "@/modules/todos/domain/todos.actions"
 import { TodosInMemory } from "@/modules/todos/infrastructure/todos.in-memory"
@@ -171,6 +172,67 @@ describe("[todos] unit tests", () => {
 
 			await expect(
 				toggleCompleteTodo({
+					todosOutput,
+					todoTitle: "Préparer le cours",
+				})
+			).rejects.toThrowError()
+		})
+	})
+
+	describe("when the user wants to remove one of his todo", () => {
+		it("should remove it", async () => {
+			todosOutput.setTodos(todosInfrastructureFakes)
+
+			const todos: Todo[] = await removeTodo({
+				todosOutput,
+				todoTitle: "Préparer la réunion",
+			})
+
+			const expectedTodos: Todo[] = [
+				{
+					title: "Promener le chien",
+					isDone: true,
+				},
+				{
+					title: "Commencer le MVP",
+					isDone: false,
+				},
+			]
+
+			expect(todos).toEqual(expectedTodos)
+		})
+
+		it("shouldn't remove it if the todo doesn't exist", async () => {
+			todosOutput.setTodos(todosInfrastructureFakes)
+
+			const todos: Todo[] = await removeTodo({
+				todosOutput,
+				todoTitle: "Une tâche qui n'existe pas",
+			})
+
+			const expectedTodos: Todo[] = [
+				{
+					title: "Préparer la réunion",
+					isDone: false,
+				},
+				{
+					title: "Promener le chien",
+					isDone: true,
+				},
+				{
+					title: "Commencer le MVP",
+					isDone: false,
+				},
+			]
+
+			expect(todos).toEqual(expectedTodos)
+		})
+
+		it("shouldn't remove it and should throw error", async () => {
+			todosOutput.setTodos(undefined)
+
+			await expect(
+				removeTodo({
 					todosOutput,
 					todoTitle: "Préparer le cours",
 				})

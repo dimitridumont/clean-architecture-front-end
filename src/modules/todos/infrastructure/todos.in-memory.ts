@@ -65,4 +65,19 @@ export class TodosInMemory implements TodosOutput {
 
 		return Promise.resolve(todos)
 	}
+
+	removeTodo({ todoTitle }: { todoTitle: string }): Promise<Todo[]> {
+		if (!this.todos)
+			throw new Error(
+				"Une erreur est survenue lors de l'ajout de la tâche"
+			)
+
+		this.todos = [
+			...this.todos.filter((todo: TodoInfra) => todo.title !== todoTitle),
+		]
+
+		const todos: Todo[] = this.mapToDomainModel(this.todos)
+
+		return Promise.resolve(todos)
+	}
 }
