@@ -4,6 +4,8 @@
   cursor: pointer;
   padding: 1rem 2rem;
   text-decoration: none;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 .isCompleted {
