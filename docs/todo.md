@@ -11,6 +11,6 @@
 
 ## Other versions
 - [ ] use Redux
-- [ ] use LocalStorage
+- [x] use LocalStorage
 - [ ] create an API with NestJS
 
