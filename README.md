@@ -53,7 +53,7 @@ jest
 --
 
 To test the app online:
-[https://clean-architecture-front-end.netlify.app](https://clean-architecture-front-end.netlify.app/)
+[https://front-end-clean-architecture.netlify.app/](https://front-end-clean-architecture.netlify.app/)
 
 ## Clean architecture
 
