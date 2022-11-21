@@ -90,9 +90,11 @@ The second implementation of interfaces (ports) is called secondary adapters. Th
 
 ## Resources
 In english :
+- [Hexagonal architecture in front-end](https://www.dimitri-dumont.fr/hexagonal-architecture-front-end)
 - [Hexagonal architecture by Alistair Cockburn](https://alistair.cockburn.us/hexagonal-architecture/)
 
 In french :
+- [Architecture hexagonale en front-end](https://www.dimitri-dumont.fr/hexagonal-architecture-front-end)
 - [Slack de Wealcome](https://wealcome.slack.com/)
 - [La Clean Architecture : catalyseur de productivité](https://medium.com/@mickalwegerich/la-clean-architecture-catalyseur-de-productivit%C3%A9-68ff61aa38ff)
 - [Architecture Hexagonale : trois principes et un exemple d’implémentation](https://blog.octo.com/architecture-hexagonale-trois-principes-et-un-exemple-dimplementation/)
