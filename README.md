@@ -1,5 +1,7 @@
 Hello, here is a repository to send you my vision of clean architecture (firstly on the front, then later on back) in different versions.
 
+I wrote an article (in French and in English) to support the examples of this project: [https://www.dimitri-dumont.fr/hexagonal-architecture-front-end](https://www.dimitri-dumont.fr/hexagonal-architecture-front-end)
+
 For these examples, I chose to use [Next.js](https://nextjs.org/) based on [React](https://reactjs.org/), but the whole point of this architecture is to be able to use it independently of the frameworks and libraries used (external dependencies).
 
 In order to have a simple example, I chose a simple subject: a todo list!
