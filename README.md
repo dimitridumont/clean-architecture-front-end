@@ -1,6 +1,7 @@
 Hello, here is a repository to send you my vision of clean architecture (firstly on the front, then later on back) in different versions.
 
-I wrote an article (in French and in English) to support the examples of this project: [https://www.dimitri-dumont.fr/blog/en/hexagonal-architecture-front-end](https://www.dimitri-dumont.fr/blog/en/hexagonal-architecture-front-end)
+I wrote an article to support the examples of this project: [https://www.dimitri-dumont.fr/blog/hexagonal-architecture-front-end](https://www.dimitri-dumont.fr/blog/hexagonal-architecture-front-end)
+To understand the clean architecture, you can also read my article on dependency inversion in front-end: [https://www.dimitri-dumont.fr/blog/dependency-inversion-front-end](https://www.dimitri-dumont.fr/blog/dependency-inversion-front-end)
 
 For these examples, I chose to use [Next.js](https://nextjs.org/) based on [React](https://reactjs.org/), but the whole point of this architecture is to be able to use it independently of the frameworks and libraries used (external dependencies).
 
@@ -91,10 +92,12 @@ The second implementation of interfaces (ports) is called secondary adapters. Th
 ## Resources
 In english :
 - [Hexagonal architecture in front-end](https://www.dimitri-dumont.fr/blog/en/hexagonal-architecture-front-end)
+- [Dependency inversion in front-end](https://www.dimitri-dumont.fr/blog/dependency-inversion-front-end)
 - [Hexagonal architecture by Alistair Cockburn](https://alistair.cockburn.us/hexagonal-architecture/)
 
 In french :
 - [Architecture hexagonale en front-end](https://www.dimitri-dumont.fr/blog/fr/hexagonal-architecture-front-end)
+- [Inversion de dépendances en front-end](https://www.dimitri-dumont.fr/blog/dependency-inversion-front-end)
 - [Slack de Wealcome](https://wealcome.slack.com/)
 - [La Clean Architecture : catalyseur de productivité](https://medium.com/@mickalwegerich/la-clean-architecture-catalyseur-de-productivit%C3%A9-68ff61aa38ff)
 - [Architecture Hexagonale : trois principes et un exemple d’implémentation](https://blog.octo.com/architecture-hexagonale-trois-principes-et-un-exemple-dimplementation/)
